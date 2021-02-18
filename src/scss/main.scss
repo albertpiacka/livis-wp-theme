@@ -1,0 +1,42 @@
+$shadow: 1px 3px 4px 2px #e3e3e3;
+$color-text: #9c9797;
+$color-bg-secondary: #fff;
+.container {
+    padding: 2em;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 1em;
+}
+
+.person {
+    box-shadow: $shadow;
+    color: $color-text;
+    background: $color-bg-secondary;
+    border-radius: 2em;
+    padding: 1em;
+    cursor: pointer;
+    transition: all .3s ease;
+
+    &:hover {
+        transform: scale(1.2);
+    }
+}
+
+input {
+    display: block;
+    padding: .5em;
+    border-radius: 2em;
+    box-shadow: $shadow;
+    background: $color-bg-secondary;
+    color: $color-text;
+    width: 70%;
+    margin: 1em auto;
+    outline: none;
+    border: none;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+  
