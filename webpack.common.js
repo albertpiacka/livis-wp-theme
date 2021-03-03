@@ -14,7 +14,7 @@ const PATHS = {
 module.exports = {
   entry: './src/js/app.js',
   output: {
-    filename: '[name].[chunkhash:8].js',
+    filename: '[name].js',
     path: dir + '/public/',
     publicPath: '/',
   },
@@ -45,13 +45,13 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(),
-    new HtmlWebpackPlugin({ template: './src/index.html'}),
+    // new HtmlWebpackPlugin({ template: './src/index.html'}),
     new MiniCssExtractPlugin({
-      filename: '[name].[chunkhash:8].css',
+      filename: '[name].css',
       chunkFilename: "[id].css"
     }),
-    new PurgeCSSPlugin({
-      paths: glob.sync(`${PATHS.src}/**/*`,  { nodir: true }),
-    }),
+    // new PurgeCSSPlugin({
+    //   paths: glob.sync(`${PATHS.src}/**/*`,  { nodir: true }),
+    // }),
   ]
 };

@@ -1,101 +1,34 @@
-import { data } from "./data";
 import  scss  from "../scss/main.scss";
+import { returnDOMel } from './functions';
+import './menu';
+import './mobileMenu';
+import './lightbox';
+import AOS from "aos";
 
-// We declare variables
+AOS.init();
 
-let people = data;
+// Odstranime wordpressacke classy
 
-let container = document.createElement('div');
-let body = document.querySelector('body');
-let input = document.createElement('input');
-let btn = document.createElement('button');
+const figures = document.querySelectorAll('figure');
 
-// Specifics for elements
-
-btn.textContent = 'Reset'
-container.classList.add('container');
-
-// Body append elements
-
-body.appendChild(container);
-body.appendChild(input);
-body.appendChild(btn);
-
-// Functions
-
-function removeKids(){
-    Array.from(container.childNodes).forEach(el => {
-        el.parentNode.removeChild(el);
-    });
-}
-
-function reset(){
-    removeKids();
-
-    data.forEach(element => {    
-        let el = document.createElement('div');
-        el.classList.add('person');
-        el.textContent = element.name;
-        container.appendChild(el);
-    });
-}
-
-// Events
-
-let passData = function (elem, val) {
-
-    // Create a new event
-    var event = new CustomEvent('data');
-
-    // Dispatch the event
-    elem.dispatchEvent(event);
-
-};
-
-window.addEventListener('data', e => {
-    console.log(e)
-})
-
-//Append element for each person in db 
-
-people.forEach(element => {
-    let el = document.createElement('div');
-    el.classList.add('person');
-    el.textContent = element.name;
-    container.appendChild(el);
+figures.forEach(figure => {
+    figure.className = '';
 });
 
-input.addEventListener('keydown', (e) => {
-    if(e.key == 'Enter'){
-        let filtered = 
-            people.filter(n => {
-                return n.name.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().includes(input.value.toLowerCase());
-            });
-        
-        removeKids();
+// Buttons 
 
-        passData(window, filtered);
-    
-        filtered.forEach(element => {
-            let el = document.createElement('div');
+const buttons = Array.from(document.querySelectorAll('.wp-block-button'));
 
-            el.classList.add('person');
-        
-            el.textContent = element.name;
-        
-            container.appendChild(el);
-        })
+buttons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        e.preventDefault();
 
-        input.value = ''
-    }
-})
+        if(btn.children[0].rel){
+            let domEl = document.getElementById(btn.children[0].rel);
 
-btn.addEventListener('click', () => {
-    reset();
+            domEl.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
+        }
+    });
 });
 
-input.addEventListener('keydown', e => {
-    if(e.key == 'Escape'){
-        reset();
-    }
-})
+

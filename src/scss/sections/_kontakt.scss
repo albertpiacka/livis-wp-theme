@@ -1,0 +1,120 @@
+ 
+#kontakt {
+    background: $color-light;
+    margin-top: -2em;
+    padding: 5em 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    
+    .wrapper {
+        position: relative;
+
+        @media screen and (max-width: 750px){
+            width: 80%;
+        }
+
+        @media screen and (max-width: 500px){
+            width: 95%;
+            padding: 1em;
+        }
+
+        h2, h1 {
+            color: $color-secondary;
+        }
+
+        .invalid {
+            .wpcf7-response-output {
+                background: #e96a6a;
+            }
+        }
+
+        .sent {
+            .wpcf7-response-output {
+                background: #85d882;
+            }
+        }
+
+        form {
+            z-index: 5;
+
+            @media screen and (max-width: 500px){
+                max-width: 90%;
+            }
+
+            .header {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-gap: 2em;
+
+                @media screen and (max-width: 500px){
+                    display: block;
+                }
+            }
+
+            .input-wrapper {
+                margin: 1em 0;
+            }
+
+            label {
+                color: $color-primary;
+                font-weight: 500;
+            }
+
+            .input, .textarea {
+                background: transparent;
+                padding: .5em 0;
+                outline: none;
+                border: none;
+                width: 100%;
+                border-bottom: 2px solid $color-primary;
+
+                color: $color-secondary;
+                font-family: $font-primary;
+                font-size: 1em;
+
+                &:focus {
+                    outline: none;
+                }
+
+                &::placeholder {
+                    color: $color-secondary;
+                    font-family: $font-primary;
+                    font-size: 1em;
+                }
+            }
+
+            .submit-btn {
+                color: $color-text-light;
+    
+                background-color: $color-primary;
+
+                border-radius: 2em;
+
+                &:focus {
+                    box-shadow: 0 0 0 4px darken($color-primary, 5%);
+                }
+
+                &:hover {
+                    background: darken($color-primary, 5%);
+                }
+            }
+
+            .wpcf7-response-output {
+                border: none;
+                color: $color-text-light;
+                padding: 1em;
+                border-radius: 2em;
+                margin: 0;
+            }
+        }
+    }
+
+    .logo {
+        .logo-img {
+            max-width: 300px;
+        }
+    }
+}

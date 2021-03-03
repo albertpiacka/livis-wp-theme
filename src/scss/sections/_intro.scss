@@ -1,0 +1,157 @@
+.intro {
+
+    padding: 70px 0;
+    background-color: rgba($color: #f9e8eb, $alpha: 1);
+    border-radius: 0 0 100% 0;
+
+    .bg-img img {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        max-height: 900px;
+        object-fit: cover;
+        height: auto;
+        opacity: 0.1;
+        border-radius: 0 0 100% 0;
+    }
+
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        height: 150px;
+        position: relative;
+        background: rgba($color: #fff, $alpha: .5);
+
+        @media screen and (max-width: 900px){
+            display: block;
+        }
+        
+        .logo {
+            max-width: 150px;
+            min-width: 150px;
+            img {
+                max-width: 100%;
+            }
+
+            @media screen and (max-width: 900px){
+                position: absolute;
+                left: 1em;
+                top: 1em;
+            }
+        }
+
+        #menuToggle {
+            position: absolute;
+            right: 2em;
+            top: 2em;
+            cursor: pointer;
+            @media screen and (min-width: 900px){
+                display: none;
+            }
+        }
+    
+        #menu-primary-1 {
+            list-style: none;
+            display: flex;
+            grid-gap: 2em;
+            padding: 0;
+
+            @media screen and (max-width: 900px){
+                display: none;
+            }
+
+            .selected a {
+                color: $color-secondary;
+            }
+            a {
+                text-decoration: none;
+                color: $color-primary;
+                letter-spacing: 1px;
+                font-weight: 500;
+                transition: all 0.3s ease;
+
+                &:hover {
+                    color: $color-secondary;
+                }
+            }
+        }
+    }
+
+    #uvod {
+        width: 80%;
+        height: 100vh;
+        margin: 1em auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        position: relative;
+
+        @media screen and (max-width: 1350px){
+            grid-template-columns: 1fr;
+            width: 90%;
+            height: auto;
+        }
+    
+        article {
+            h1 {
+                color: $color-primary;
+                margin-bottom: 0.5em;
+            }
+    
+            p {
+                color: $color-secondary; 
+                max-width: 50%;
+
+                @media screen and (max-width: 500px){
+                    max-width: 100%;
+                }
+            }
+
+            @media screen and (max-width: 1000px){
+                max-width: 80%;
+            }
+        }
+
+        aside {
+            position: relative;
+
+            img {
+                position: relative;
+                transition: all .6s ease;
+                @media screen and (min-width: 900px){
+                    &:hover {
+                        transform: scale(1.1);
+                    }
+                }
+                
+                @media screen and (min-width: 700px){
+                    &:nth-of-type(1){
+                        top: 1em;
+                        z-index: 1;
+                    }
+                    &:nth-of-type(2){
+                        top: 6em;
+                        right: 4em;
+                        z-index: 3;
+                    }
+                    &:nth-of-type(3){
+                        bottom: 6em;
+                        right: 6em;
+                        z-index: 2;
+                    }
+                }
+
+                @media screen and (max-width: 700px){
+                    min-width: 100%;
+                }
+            }
+
+            @media screen and (max-width: 1000px){
+                text-align: center;
+                margin: 1em auto;
+            }
+        }
+    }
+
+}
