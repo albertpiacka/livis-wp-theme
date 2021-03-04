@@ -18,6 +18,22 @@ menu.forEach(element => {
 
         let domEl = returnDOMel(element);
         
-        domEl.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
+        domEl.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
     })
+});
+
+window.addEventListener("scroll", function() {
+    
+    menu.forEach(element => {
+        const el = returnDOMel(element);
+    
+        if (window.scrollY > (el.offsetTop - 100)) {
+            menu.forEach(el => {
+                el.classList.remove('selected');
+            })
+    
+            element.classList.add('selected');
+        }
+    })
+
 });

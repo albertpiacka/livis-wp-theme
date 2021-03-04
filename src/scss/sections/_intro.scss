@@ -21,8 +21,11 @@
         align-items: center;
         justify-content: space-evenly;
         height: 150px;
-        position: relative;
         background: rgba($color: #fff, $alpha: .5);
+        position: fixed;
+        width: 100%;
+        z-index: 100;
+        top: 1em;
 
         @media screen and (max-width: 900px){
             display: block;
@@ -83,6 +86,7 @@
         width: 80%;
         height: 100vh;
         margin: 1em auto;
+        margin-top: 10em;
         display: grid;
         grid-template-columns: 1fr 1fr;
         position: relative;
